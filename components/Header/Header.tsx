@@ -1,44 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
 
-import logo from "../public/img/logo.jpg";
+import BurgerMenu from "./BurgerMenu";
 
-import "./header.module.scss"
+import logo from "../../public/img/logo.png";
+import header from "@/app/styles/header.module.scss";
 
 export default function Header() {
 	return (
-		<header className='header'>
-			<nav className='nav'>
+		<header className={header.header}>
+			<nav className={header.nav}>
 				<Link href='/'>
-					<Image src={logo} className='nav__logo' alt='logo' />
+					<Image src={logo} className={header.logo} alt='logo' />
 				</Link>
-				<div className='desktop-menu'>
-					<Link className='nav__link' href='/about'>
-						О нас
-					</Link>
-					<Link className='nav__link' href='/catalog'>
-						Каталог
-					</Link>
-					<Link className='nav__link' href='/basket'>
-						Корзина
-					</Link>
+				<div className={header.desktopMenu}>
+					<Link href='/'>Главная</Link>
+					<Link href='/about'>О нас</Link>
+					<Link href='/catalog'>Каталог</Link>
+					<Link href='/basket'>Корзина</Link>
 				</div>
-				<div className='burger-menu'>
-					<div className='burger-menu__button'>
-						<span className='burger-menu__button__center-line' />
-					</div>
-					<div className='burger-menu__links'>
-						<Link className='nav__link' href='/about'>
-							О нас
-						</Link>
-						<Link className='nav__link' href='/catalog'>
-							Каталог
-						</Link>
-						<Link className='nav__link' href='/basket'>
-							Корзина
-						</Link>
-					</div>
-				</div>
+				<BurgerMenu />
 			</nav>
 		</header>
 	);

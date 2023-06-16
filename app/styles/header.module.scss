@@ -1,0 +1,143 @@
+@import "mixins";
+
+.header {
+	width: 100%;
+	margin-bottom: 100px;
+}
+.nav {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 40px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 4;
+	height: 100px;
+	background-color: white;
+}
+.logo {
+	width: 100px;
+	height: 50px;
+	object-fit: contain;
+}
+@include desktop() {
+	.desktopMenu {
+		width: 40%;
+		display: flex;
+		justify-content: space-between;
+		a {
+			transition: 0.3s;
+		}
+		a:hover {
+			cursor: default;
+			scale: 1.1;
+		}
+	}
+	.burgerMenu {
+		display: none;
+	}
+}
+@include mobile() {
+	.nav {
+		padding: 10px 20px 10px 40px;
+	}
+	.desktopMenu {
+		display: none;
+	}
+	.burgerMenu {
+		display: flex;
+		flex-direction: column;
+
+		.checkbox {
+			position: absolute;
+			top: 50%;
+			right: 40px;
+			transform: translateY(-50%);
+			width: 50px;
+			height: 50px;
+			opacity: 0;
+			z-index: 4;
+		}
+
+		&__button {
+			width: 50px;
+			height: 30px;
+			position: relative;
+			display: flex;
+			align-items: center;
+			transition: .3s;
+			&:before {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 5px;
+				background-color: grey;
+				border-radius: 5px;
+				transition: 0.3s;
+			}
+			&:after {
+				content: "";
+				display: block;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				height: 5px;
+				background-color: grey;
+				border-radius: 5px;
+				transition: 0.3s;
+			}
+			div {
+				width: 100%;
+				height: 5px;
+				background-color: grey;
+				border-radius: 5px;
+			}
+		}
+
+		&__links {
+			display: flex;
+			flex-direction: column;
+			height: 100vh;
+			width: 100vw;
+			position: absolute;
+			top: 0;
+			left: 0;
+			padding-top: 100px;
+			background-color: rgba($color: #ffffff, $alpha: 1);
+			z-index: -1;
+			transform: translateX(100%);
+			transition: 0.5s;
+
+			a {
+				padding: 20px;
+			}
+			a:active {
+				text-shadow: 0px 0px 10px grey;
+			}
+		}
+	}
+	.burgerMenu_opened {
+		.burgerMenu__button {
+			div {
+				display: none;
+			}
+			&:before {
+				top: 10px;
+				transform: rotate(135deg);
+			}
+			&:after {
+				top: 10px;
+				transform: rotate(-135deg);
+			}
+		}
+		.burgerMenu__links {
+			transform: translateX(0%);
+		}
+	}
+}
