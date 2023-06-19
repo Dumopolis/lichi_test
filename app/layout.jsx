@@ -10,18 +10,14 @@ export const metadata = {
 		"Магазин модной одежды Lichi. Мы предлагаем десятки дизайнов одежды каждую неделю, наша одежда уникальна и каждый новый дизайн отражает последние тенденции моды.",
 };
 
-export default function RootLayout({
-	children,
-}: {
-	children: React.ReactNode;
-}) {
+export default function RootLayout({children}) {
 	return (
-			<html lang='en'>
-				<body>
-					<Header />
-					<main className={layout.main}>{children}</main>
-					<Footer />
-				</body>
-			</html>
+		<html lang='en'>
+			<body>
+				<Header />
+				<main className={layout.main}>{children}</main>
+				<Footer />
+			</body>
+		</html>
 	);
 }
