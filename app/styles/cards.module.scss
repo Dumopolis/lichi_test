@@ -1,0 +1,77 @@
+.cards {
+	display: flex;
+	flex-wrap: wrap;
+	max-width: 1200px;
+	margin: 50px auto;
+	gap: 20px;
+}
+
+.card {
+	width: 23%;
+	height: 100%;
+	overflow: hidden;
+	border-radius: 5px;
+	box-shadow: 0px 0px 10px rgba($color: #b6aea2, $alpha: 0.2);
+	h3 {
+		font-size: 0.8rem;
+		font-weight: 300;
+		padding: 15px;
+	}
+	img {
+		width: 100%;
+		display: block;
+	}
+	position: relative;
+	&:hover {
+		&::before {
+			position: absolute;
+			content: url("../../public/img/swiper.svg");
+			top: 50%;
+			right: 20px;
+			z-index: 2;
+			animation: swiper 0.8s ease-in-out infinite both alternate;
+		}
+	}
+}
+
+.controls {
+	display: flex;
+
+	button {
+		padding: 10px;
+		width: 60%;
+		height: 50px;
+		border: none;
+		outline: none;
+		background-color: white;
+		transition: 0.1s;
+
+		&:hover {
+			background-color: rgba($color: #b6aea2, $alpha: 0.2);
+		}
+		&:active {
+			background-color: rgba($color: #b6aea2, $alpha: 0.5);
+		}
+	}
+
+	select {
+		padding: 10px;
+		width: 40%;
+		border: none;
+		outline: none;
+		background-color: white;
+		transition: 0.3s;
+		&:hover {
+			background-color: rgba($color: #b6aea2, $alpha: 0.2);
+		}
+	}
+}
+
+@keyframes swiper {
+	0% {
+		transform: rotate(15deg) translateX(10px);
+	}
+	100% {
+		transform: rotate(-15deg) translateX(-10px);
+	}
+}

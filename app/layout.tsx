@@ -2,8 +2,7 @@ import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 
 import "./globals.css";
-import layout from '@/app/styles/layout.module.scss'
-
+import layout from "@/app/styles/layout.module.scss";
 
 export const metadata = {
 	title: "LICHI - Online fashion store",
@@ -17,12 +16,12 @@ export default function RootLayout({
 	children: React.ReactNode;
 }) {
 	return (
-		<html lang='en'>
-			<body>
-				<Header />
-				<main className={layout.main}>{children}</main>
-				<Footer />
-			</body>
-		</html>
+			<html lang='en'>
+				<body>
+					<Header />
+					<main className={layout.main}>{children}</main>
+					<Footer />
+				</body>
+			</html>
 	);
 }
